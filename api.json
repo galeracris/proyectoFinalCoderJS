@@ -1,0 +1,50 @@
+[
+    {
+      "precio": 200,
+      "id": 1,
+      "title": "AAA",
+      "thumbnailUrl": "./images/AAA.jpeg"
+    },
+    {
+      "precio": 250,
+      "id": 2,
+      "title": "Blonde",
+      "thumbnailUrl": "./images/Blonde.jpeg"
+    },
+    {
+      "precio": 230,
+      "id": 3,
+      "title": "Camper IPA",
+      "thumbnailUrl": "./images/camperIpa.jpg"
+    },
+    {
+      "precio": 250,
+      "id": 4,
+      "title": "Honey",
+      "thumbnailUrl": "./images/honeyPintaRecortada.png"
+    },
+    {
+      "precio": 230,
+      "id": 5,
+      "title": "Porter",
+      "thumbnailUrl": "./images/porterPinta3.png"
+    },
+    {
+      "precio": 210,
+      "id": 6,
+      "title": "Red Ale",
+      "thumbnailUrl": "./images/redAle.jpeg"
+    },
+    {
+      "precio": 220,
+      "id": 7,
+      "title": "Red Honey",
+      "thumbnailUrl": "./images/redHoney.jpeg"
+    },
+    {
+      "precio": 280,
+      "id": 8,
+      "title": "Session IPA",
+      "thumbnailUrl": "./images/sessionIpa.jpeg"
+    }
+  ]
