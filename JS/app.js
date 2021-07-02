@@ -96,6 +96,8 @@ const pintarCarrito = () => {
     items.appendChild(fragment)
 
     pintarFooter()
+
+    mostrarArriba()
     
     localStorage.setItem('carrito', JSON.stringify(carrito)) //lo guardo en localstorage
 
@@ -128,11 +130,16 @@ const pintarFooter = () => {
 
     })
 
+    function mostrarArriba(nprecio) {
+        let tag = document.querySelector('#precioGral')
+        tag.textContent = nprecio
+    }
+
     $("#precioGral").append(templateFooter.querySelector('span').textContent = nprecio);
 } 
 
 
-
+// Boton detalle
 
 
 

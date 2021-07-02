@@ -2,49 +2,43 @@
     {
       "precio": 200,
       "id": 1,
-      "title": "AAA",
-      "thumbnailUrl": "./images/AAA.jpeg"
+      "title": "Blonde",
+      "thumbnailUrl": "./images/lataBlonde.jpg"
     },
     {
       "precio": 250,
       "id": 2,
-      "title": "Blonde",
-      "thumbnailUrl": "./images/Blonde.jpeg"
+      "title": "Ginger Ale",
+      "thumbnailUrl": "./images/lataGingerAle.jpg"
     },
     {
       "precio": 230,
       "id": 3,
-      "title": "Camper IPA",
-      "thumbnailUrl": "./images/camperIpa.jpg"
+      "title": "IPA",
+      "thumbnailUrl": "./images/lataIpa.jpg"
     },
     {
       "precio": 250,
       "id": 4,
-      "title": "Honey",
-      "thumbnailUrl": "./images/honeyPintaRecortada.png"
+      "title": "Red Ale",
+      "thumbnailUrl": "./images/lataRedAle.jpg"
     },
     {
       "precio": 230,
       "id": 5,
-      "title": "Porter",
-      "thumbnailUrl": "./images/porterPinta3.png"
+      "title": "Red Honey",
+      "thumbnailUrl": "./images/lataRedHoney.jpg"
     },
     {
       "precio": 210,
       "id": 6,
-      "title": "Red Ale",
-      "thumbnailUrl": "./images/redAle.jpeg"
+      "title": "SessionIpa",
+      "thumbnailUrl": "./images/lataSessionIpa.jpg"
     },
     {
       "precio": 220,
       "id": 7,
-      "title": "Red Honey",
-      "thumbnailUrl": "./images/redHoney.jpeg"
-    },
-    {
-      "precio": 280,
-      "id": 8,
-      "title": "Session IPA",
-      "thumbnailUrl": "./images/sessionIpa.jpeg"
+      "title": "White Apa",
+      "thumbnailUrl": "./images/lataWhiteApa.jpg"
     }
-  ]
+]
