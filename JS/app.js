@@ -191,3 +191,18 @@ $("#latas").prepend(`<div id="div-borneo" style="display: none; height: 50px">
 $("#btn-latas").click(() => { 
     $("#div-borneo").toggle("slow");
 });
+
+// selectores
+
+$("#welcome").prepend(`<form id="form">
+                       <input type="text", placeholder="Ingrese su nombre">
+                       <input type="number", placeholder="Ingrese su edad">
+                       <input type="submit">
+                   </form>`);
+
+$("#form").submit(function (e) {
+    e.preventDefault();
+    let ingresos = $(e.target).children();
+    console.log(ingresos[0].value);
+    console.log(ingresos[1].value);
+});
