@@ -1,6 +1,7 @@
 const cards = document.getElementById('cards')
 const items = document.getElementById('items')
 const footer = document.getElementById('footer')
+const detalle = document.getElementById('precioGralHijo')
 const templateCard = document.getElementById('template-card').content //.content para acceder a los elementos.
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
@@ -96,8 +97,6 @@ const pintarCarrito = () => {
     items.appendChild(fragment)
 
     pintarFooter()
-
-    mostrarArriba()
     
     localStorage.setItem('carrito', JSON.stringify(carrito)) //lo guardo en localstorage
 
@@ -126,22 +125,29 @@ const pintarFooter = () => {
     const btnVaciar = document.getElementById('vaciar-carrito')
     btnVaciar.addEventListener('click', () => {
         carrito = {}
-        pintarCarrito()   
-
+        pintarCarrito()
     })
+    
+    
+    const verDetalle = $(detalle).append(templateFooter.querySelector('span').textContent = "$" + nprecio);
 
-    function mostrarArriba(nprecio) {
-        let tag = document.querySelector('#precioGral')
-        tag.textContent = nprecio
-    }
+//     let padre = document.getElementById("precioGralPadre");
+//     let parentDiv = precioDetalle.parentNode;
 
-    $("#precioGral").append(templateFooter.querySelector('span').textContent = nprecio);
-} 
+//     parentDiv.replaceChild(precioGral, detalle);
 
+    
+//      var element = document.getElementById("top");
 
-// Boton detalle
+//     while (precioGral.firstChild) {
+//     precioGral.removeChild(precioGral.firstChild);
+// }
 
+// document.querySelector("#precioGral")
+// document.querySelector("#main > div.shell > div.options > div > span")
+     
 
+}
 
 //ACCIONES DE LOS BOTONES
 
@@ -170,3 +176,18 @@ const btnAccion = e => {
 
     e.stopPropagation()
 }
+
+// jquery animacion
+
+$("#titulo").fadeIn(3000).slideDown("slow").fadeOut(3000).slideUp("slow").fadeIn(3000);
+
+//
+
+$("#latas").prepend('<button id="btn-latas">Hazme Click</button>');
+
+$("#latas").prepend(`<div id="div-borneo" style="display: none; height: 50px">
+                    <h4>Gracias por visitarnos!!</h4>
+                    </div>`);
+$("#btn-latas").click(() => { 
+    $("#div-borneo").toggle("slow");
+});
