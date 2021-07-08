@@ -28,17 +28,5 @@
       "id": 5,
       "title": "Red Honey",
       "thumbnailUrl": "./images/lataRedHoney.jpg"
-    },
-    {
-      "precio": 210,
-      "id": 6,
-      "title": "SessionIpa",
-      "thumbnailUrl": "./images/lataSessionIpa.jpg"
-    },
-    {
-      "precio": 220,
-      "id": 7,
-      "title": "White Apa",
-      "thumbnailUrl": "./images/lataWhiteApa.jpg"
     }
 ]

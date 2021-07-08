@@ -141,6 +141,22 @@ h1#logo a {
 	opacity: 75%;
 }
 
+.brands a img:hover{
+animation-name: brands;
+animation-duration: 4s;
+}
+
+@keyframes brands {
+from {opacity: 100%;}
+to {opacity: 25%;}
+}
+
+/* .brands a img:hover{
+	border-radius: 10px;
+	animation: 
+	animation-duration: 2s;
+} */
+
 #footerDown { 
 	border-top:dashed 1px #cfcfcf; 
 	margin-top:20px; 
