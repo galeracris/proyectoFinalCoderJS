@@ -206,3 +206,23 @@ $("#form").submit(function (e) {
     console.log(ingresos[0].value);
     console.log(ingresos[1].value);
 });
+
+// AJAX - GET
+
+const URLGET = "./metodoGET.json"
+
+$("#latas").prepend('<button id="btn1" style="padding: 2px">MÉTODO GET</button>');
+
+$("#btn1").click(() => { 
+    $.get(URLGET, function (respuesta, estado) {
+          if(estado === "success"){
+            let misDatos = respuesta;
+            for (const dato of misDatos) {
+              $("#latas").prepend(`<div style="border: 1px solid green">
+                                   <h4>${dato.title}</h4>
+                                   <p> ${dato.body}</p>
+                                  </div>`);
+            }  
+          }
+    });
+});
