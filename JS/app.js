@@ -11,7 +11,7 @@ let carrito = {} //variable vacia para luego ser modificada, segun la compra que
 //Capturar datos del JSON y parsearlos.
 document.addEventListener('DOMContentLoaded', () => {
     fetchData() //funcion capturar los datos
-    if(localStorage.getItem('carrito')){
+    if (localStorage.getItem('carrito')) {
         carrito = JSON.parse(localStorage.getItem('carrito'))
         pintarCarrito()
     }
@@ -29,12 +29,12 @@ items.addEventListener('click', e => {
 
 // Leemos info del JSON
 const fetchData = async () => {
-    try{
-        const res = await fetch('/api.json') //peticion de acceso a los datos
+    try {
+        const res = await fetch(window.location.href + 'api.json') //peticion de acceso a los datos
         const data = await res.json() //guardo los datos del json
         // console.log(data)
         pintarCards(data)
-    }catch (error){             //si falla el fetch, el catch muestra el error que viene del backend.
+    } catch (error) { //si falla el fetch, el catch muestra el error que viene del backend.
         console.log(error)
     }
 }
@@ -43,13 +43,13 @@ const fetchData = async () => {
 const pintarCards = (data) => {
     // console.log(data)
     data.forEach(producto => {
-    templateCard.querySelector('h5').textContent = producto.title
-    templateCard.querySelector('p').textContent = producto.precio
-    templateCard.querySelector('img').setAttribute("src", producto.thumbnailUrl)
-    templateCard.querySelector('.btn-dark').dataset.id = producto.id // se vincula el button con el id 
+        templateCard.querySelector('h5').textContent = producto.title
+        templateCard.querySelector('p').textContent = producto.precio
+        templateCard.querySelector('img').setAttribute("src", producto.thumbnailUrl)
+        templateCard.querySelector('.btn-dark').dataset.id = producto.id // se vincula el button con el id 
 
-    const clone = templateCard.cloneNode(true)
-    fragment.appendChild(clone)
+        const clone = templateCard.cloneNode(true)
+        fragment.appendChild(clone)
     })
 
     cards.appendChild(fragment)
@@ -58,7 +58,7 @@ const pintarCards = (data) => {
 const addCarrito = e => {
     // console.log(e.target)
     // console.log(e.target.classList.contains('btn-dark'))
-    if(e.target.classList.contains('btn-dark')){
+    if (e.target.classList.contains('btn-dark')) {
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation() //evita que se hereden los eventos del contenedor padre 
@@ -73,11 +73,13 @@ const setCarrito = objeto => {
         cantidad: 1
     }
 
-    if (carrito.hasOwnProperty(producto.id)){ // siel producto con ese id existe se aumente en 1
+    if (carrito.hasOwnProperty(producto.id)) { // siel producto con ese id existe se aumente en 1
         producto.cantidad = carrito[producto.id].cantidad + 1
     }
 
-    carrito[producto.id] = {...producto} //lo llevo a la variable carrito que esta vacia - ...igual o una copia de producto, en este caso.
+    carrito[producto.id] = {
+        ...producto
+    } //lo llevo a la variable carrito que esta vacia - ... =>igual o una copia de..... producto, en este caso.
     pintarCarrito()
 }
 
@@ -97,7 +99,7 @@ const pintarCarrito = () => {
     items.appendChild(fragment)
 
     pintarFooter()
-    
+
     localStorage.setItem('carrito', JSON.stringify(carrito)) //lo guardo en localstorage
 
 }
@@ -105,14 +107,19 @@ const pintarCarrito = () => {
 
 const pintarFooter = () => {
     footer.innerHTML = ''
-    if(Object.keys(carrito).length === 0){
+    if (Object.keys(carrito).length === 0) {
         footer.innerHTML = '<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>'
         return
     }
 
-    const ncantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad, 0)
+    const ncantidad = Object.values(carrito).reduce((acc, {
+        cantidad
+    }) => acc + cantidad, 0)
     // console.log(ncantidad)
-    const nprecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio, 0)
+    const nprecio = Object.values(carrito).reduce((acc, {
+        cantidad,
+        precio
+    }) => acc + cantidad * precio, 0)
 
     templateFooter.querySelectorAll('td')[0].textContent = ncantidad
     templateFooter.querySelector('span').textContent = nprecio
@@ -126,48 +133,68 @@ const pintarFooter = () => {
     btnVaciar.addEventListener('click', () => {
         carrito = {}
         pintarCarrito()
+        // pintarDetalle()
     })
-    
-    
+
+
     const verDetalle = $(detalle).append(templateFooter.querySelector('span').textContent = "$" + nprecio);
 
-//     let padre = document.getElementById("precioGralPadre");
-//     let parentDiv = precioDetalle.parentNode;
-
-//     parentDiv.replaceChild(precioGral, detalle);
-
     
-//      var element = document.getElementById("top");
-
-//     while (precioGral.firstChild) {
-//     precioGral.removeChild(precioGral.firstChild);
-// }
-
-// document.querySelector("#precioGral")
-// document.querySelector("#main > div.shell > div.options > div > span")
-     
-
-}
-
-//ACCIONES DE LOS BOTONES
+    // Detalle
+    
+    
+    // const pintarDetalle = () => {
+        //     detalle.innerHTML = ''
+        
+        //     const nPrecioDetalle = Object.values(carrito).reduce((acc, {
+            //         cantidad,
+            //         precio
+            //     }) => acc + cantidad * precio, 0);
+            
+            //     detalle.querySelector('strong').textContent = nPrecioDetalle
+            
+            //     const clone = detalle.cloneNode(true)
+            //     fragment.appendChild(clone)
+            //     detalle.appendChild(fragment)
+            
+                // if (Object.keys(carrito.length === 0)) {
+                //         detalle.innerHTML = '$0'
+                //         return
+                //     }
+                // }
+                //     let padre = document.getElementById("precioGralPadre");
+                //     let parentDiv = precioDetalle.parentNode;
+                
+                //     parentDiv.replaceChild(precioGral, detalle);
+                
+                
+                
+                // while (precioGral.firstChild) {
+                //     precioGral.removeChild(precioGral.firstChild);
+                // }
+            }
+            
+            //ACCIONES DE LOS BOTONES
 
 const btnAccion = e => {
     // console.log(e.target)
     // Boton - Accion de aumentar
-    if(e.target.classList.contains('btn-info')){
+    if (e.target.classList.contains('btn-info')) {
         // console.log(carrito[e.target.dataset.id])
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
-        carrito[e.target.dataset.id] = {...producto}
+        carrito[e.target.dataset.id] = {
+            ...producto
+        }
         pintarCarrito()
 
     }
 
     // Boton - Accion restar
-    if(e.target.classList.contains('btn-danger')){
+    if (e.target.classList.contains('btn-danger')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad--
-        if(producto.cantidad === 0){
+        if (producto.cantidad === 0) {
             delete carrito[e.target.dataset.id]
         }
         pintarCarrito()
@@ -188,9 +215,10 @@ $("#latas").prepend('<button id="btn-latas">Hazme Click</button>');
 $("#latas").prepend(`<div id="div-borneo" style="display: none; height: 50px">
                     <h4>Gracias por visitarnos!!</h4>
                     </div>`);
-$("#btn-latas").click(() => { 
+$("#btn-latas").click(() => {
     $("#div-borneo").toggle("slow");
 });
+
 
 // selectores
 
@@ -211,18 +239,22 @@ $("#form").submit(function (e) {
 
 const URLGET = "./metodoGET.json"
 
-$("#latas").prepend('<button id="btn1" style="padding: 2px">MÉTODO GET</button>');
+$("#latas").prepend('<button id="btn1" style="margin: 5px">MÉTODO GET</button>');
 
-$("#btn1").click(() => { 
+$("#btn1").click(() => {
     $.get(URLGET, function (respuesta, estado) {
-          if(estado === "success"){
+        if (estado === "success") {
             let misDatos = respuesta;
             for (const dato of misDatos) {
-              $("#latas").prepend(`<div style="border: 1px solid green">
+                $("#latas").prepend(`<div style="border: 1px solid green">
                                    <h4>${dato.title}</h4>
                                    <p> ${dato.body}</p>
                                   </div>`);
-            }  
-          }
+            }
+        }
     });
 });
+
+const element = document.querySelector('#cards');
+element.classList.add('animate__animated', 'animate__pulse');
+element.style.setProperty('--animate-duration', '2s');

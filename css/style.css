@@ -105,7 +105,18 @@ h1#logo a {
 
 .signoPesos{
 	position: absolute;
-	padding-left: 27px;
+	padding-left: 15px;
+}
+
+#cards{
+	/* background-color: green; */
+	text-align: center;
+	justify-content: center;
+}
+#cards .card{
+	border: 1px solid #000;
+	box-shadow: 8px 0px 8px 0px;
+	
 }
 
 
@@ -133,7 +144,11 @@ h1#logo a {
 #container { background:#fff, url(images/container-t.gif) no-repeat 0 0; padding: 130px 20px;}
 
 
-.brands h3 { padding-bottom:10px;}
+.brands h3 { 
+	padding-bottom:10px;
+	display: inline-block;
+}
+
 .brands a img { 
 	margin-right:30px; 
 	width: 15%; 
@@ -166,3 +181,16 @@ to {opacity: 25%;}
 #footerDown a{ color:#8e8e8e; }
 #footerDown a:hover{ color:#9d0000; }
 #footerDown span{ padding:0 5px;}
+
+
+/* Responsive */
+
+@media (max-width: 768px) and (min-width: 0px) {
+	.row{
+		background-color: rgb(138, 138, 138);
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+}
