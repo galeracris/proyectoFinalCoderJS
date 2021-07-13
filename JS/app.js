@@ -30,7 +30,7 @@ items.addEventListener('click', e => {
 // Leemos info del JSON
 const fetchData = async () => {
     try {
-        const res = await fetch(window.location.href + 'api.json') //peticion de acceso a los datos
+        const res = await fetch(window.location.href  + 'api.json') //peticion de acceso a los datos
         const data = await res.json() //guardo los datos del json
         // console.log(data)
         pintarCards(data)
@@ -133,47 +133,18 @@ const pintarFooter = () => {
     btnVaciar.addEventListener('click', () => {
         carrito = {}
         pintarCarrito()
-        // pintarDetalle()
+        borrarDetalle()
     })
 
+    
+    const verDetalle = detalle.innerText = "$" + nprecio;
+    
+    const borrarDetalle = () => {
+        let inicioDetalle = detalle.innerText = "$0";
+        localStorage.clear()
+    }
+}
 
-    const verDetalle = $(detalle).append(templateFooter.querySelector('span').textContent = "$" + nprecio);
-
-    
-    // Detalle
-    
-    
-    // const pintarDetalle = () => {
-        //     detalle.innerHTML = ''
-        
-        //     const nPrecioDetalle = Object.values(carrito).reduce((acc, {
-            //         cantidad,
-            //         precio
-            //     }) => acc + cantidad * precio, 0);
-            
-            //     detalle.querySelector('strong').textContent = nPrecioDetalle
-            
-            //     const clone = detalle.cloneNode(true)
-            //     fragment.appendChild(clone)
-            //     detalle.appendChild(fragment)
-            
-                // if (Object.keys(carrito.length === 0)) {
-                //         detalle.innerHTML = '$0'
-                //         return
-                //     }
-                // }
-                //     let padre = document.getElementById("precioGralPadre");
-                //     let parentDiv = precioDetalle.parentNode;
-                
-                //     parentDiv.replaceChild(precioGral, detalle);
-                
-                
-                
-                // while (precioGral.firstChild) {
-                //     precioGral.removeChild(precioGral.firstChild);
-                // }
-            }
-            
             //ACCIONES DE LOS BOTONES
 
 const btnAccion = e => {
@@ -215,6 +186,7 @@ $("#latas").prepend('<button id="btn-latas">Hazme Click</button>');
 $("#latas").prepend(`<div id="div-borneo" style="display: none; height: 50px">
                     <h4>Gracias por visitarnos!!</h4>
                     </div>`);
+
 $("#btn-latas").click(() => {
     $("#div-borneo").toggle("slow");
 });
@@ -239,22 +211,23 @@ $("#form").submit(function (e) {
 
 const URLGET = "./metodoGET.json"
 
-$("#latas").prepend('<button id="btn1" style="margin: 5px">MÉTODO GET</button>');
+$("#latas").prepend('<button id="btn1" style="margin: 5px; border-radius: 5px; background-color: #fff; box-shadow: 2px 0px 2px 0px;">Características de nuestras Cervezas</button>');
 
 $("#btn1").click(() => {
     $.get(URLGET, function (respuesta, estado) {
         if (estado === "success") {
             let misDatos = respuesta;
             for (const dato of misDatos) {
-                $("#latas").prepend(`<div style="border: 1px solid green">
-                                   <h4>${dato.title}</h4>
-                                   <p> ${dato.body}</p>
+                $("#latas").prepend(`<div style="border: 1px solid #1E679A; border-radius: 5px">
+                                   <h4 "font-weight: bold>${dato.title}</h4>
+                                   <p style="color:#072e06"> ${dato.body}</p>
                                   </div>`);
             }
         }
     });
 });
 
+// Animacion CARDS
 const element = document.querySelector('#cards');
 element.classList.add('animate__animated', 'animate__pulse');
 element.style.setProperty('--animate-duration', '2s');

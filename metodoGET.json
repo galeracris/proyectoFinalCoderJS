@@ -1,26 +1,37 @@
 [
     {
-      "userId": "Alpha",
       "id": 1,
-      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+      "title": "Blonde",
+      "body": "Las Blonde suelen ser de color amarillo pálido o dorado. Tienen un cuerpo ligero, poco amargor y aroma a lúpulo y algunos toques dulces (debido a la malta). Por eso las Blonde son conocidas como el estilo de cerveza artesanal para iniciarse."
     },
     {
-      "userId": "Beta",
       "id": 2,
-      "title": "qui est esse",
-      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+      "title": "Ginger Ale",
+      "body": "Ginger Ale es una bebida gaseosa de origen inglés fabricada con agua mineral, jengibre, azúcar y limón. En el siglo XIX se popularizó en las tabernas o cervecerías inglesas para abatir las bebidas alcohólicas con jengibre. Esto daría origen a lo que hoy conocemos como Ginger Ale."
     },
     {
-      "userId": "Gamma",
       "id": 3,
-      "title": "ea molestias quasi exercitationem repellat qui ipsa sit aut",
-      "body": "et iusto sed quo iure\nvoluptatem occaecati omnis eligendi aut ad\nvoluptatem doloribus vel accusantium quis pariatur\nmolestiae porro eius odio et labore et velit aut"
+      "title": "IPA",
+      "body": "Son cervezas de alta fermentación. Presentan un color pálido anaranjado similar al ámbar, de menor o mayor intensidad. Su graduación alcohólica oscila entre 5,1º y 7,6º. Poseen un mayor aporte de lúpulo, que proporciona un mayor grado de amargor, aparte de una serie de matices aromáticos y de sabor particulares"
     },
     {
-      "userId": "Delta",
       "id": 4,
-      "title": "eum et est occaecati",
-      "body": "ullam et saepe reiciendis voluptatem adipisci\nsit amet autem assumenda provident rerum culpa\nquis hic commodi nesciunt rem tenetur doloremque ipsam iure\nquis sunt voluptatem rerum illo velit"
+      "title": "Red Ale",
+      "body": "De color cobre profundo, medianamente turbia, con espuma densa y cremosa. En nariz se aprecian aromas a caramelo con suaves notas a lúpulo. En boca se denota un leve dulzor y sabor a granos tostados."
+    },
+    {
+      "id": 5,
+      "title": "Red Honey",
+      "body": "Llegó la nueva lata Cerveza Rabieta Red Honey, una cerveza fácil de tomar con un balance optimo entre sabor y aroma. Con su particular color Rojo cobrizo la Cerveza Rabieta Red Honey es ligera de cuerpo y posee un suave dulzor aportado por la miel."
+    },
+    {
+      "id": 6,
+      "title": "Session Ipa",
+      "body": "Una IPA de sesión se caracteriza por ser más fácil de beber, y tener un sabor un poco más ligero que las India Pale Ale comunes. El punto es que la cerveza tenga un grado bajo de alcohol, y tenga un sabor y un aroma que sobresalga.22"
+    },
+    {
+      "id": 7,
+      "title": "White Apa",
+      "body": "Cerveza pálida, con alto aroma y sabor a lúpulo, algo de acidéz y muy compleja."
     }
 ]
