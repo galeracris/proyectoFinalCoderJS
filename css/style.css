@@ -66,11 +66,6 @@ h1#logo a {
 	margin:0 auto;
 }
 
-/* .table {
-	position: sticky;
-	top: 100px;
-} */
-
 #top {height:120x; background:#000;}
 #header {height: 85px;}
 
@@ -119,30 +114,7 @@ h1#logo a {
 	
 }
 
-
-/* Tabs Ropa */
-
-/* #content { padding-top:20px; }
-
-.tabs { height:36px; }
-.tabs ul{ list-style-type: none; font-size:14px; text-transform: uppercase; font-weight: bold; }
-.tabs ul li{ float:left; display:inline; margin-right:1px; }
-.tabs ul li a,
-.tabs ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 -37px; padding:0 0 0 20px;}
-.tabs ul li a span { background-position:right -37px; padding:0 20px 0 0;}
-.tabs ul li a { position:relative; line-height:36px; color:#895d23; } 
-
-
-.tabs ul li a.red { background-position:0 -74px; color:#fff; }
-.tabs ul li a.red span{ background-position:right -74px;}
-
-.tabs ul li a.active,
-.tabs ul li a:hover { background-position:0 0; color:#4f4f4f; }
-.tabs ul li a.active span,
-.tabs ul li a:hover span{ background-position:right 0;} */
-
 #container { background:#fff, url(images/container-t.gif) no-repeat 0 0; padding: 130px 20px;}
-
 
 .brands h3 { 
 	padding-bottom:10px;
@@ -165,12 +137,6 @@ animation-duration: 4s;
 from {opacity: 100%;}
 to {opacity: 25%;}
 }
-
-/* .brands a img:hover{
-	border-radius: 10px;
-	animation: 
-	animation-duration: 2s;
-} */
 
 #footerDown { 
 	border-top:dashed 1px #cfcfcf; 

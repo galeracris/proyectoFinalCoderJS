@@ -23,10 +23,9 @@
         <h1 id="logo"><img src="./images/logo_1930.gif" style="width: 75px; height: auto; padding-top: 10px;"></h1>
         <div id="navigation">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Mi cuenta</a></li>
-            <li><a href="#">Tienda</a></li>
-            <li class="last"><a href="#">Contacto</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Tienda</a></li>
+            <li class="last"><a href="form.html">Contacto</a></li>
           </ul>
         </div>
       </div>
@@ -40,9 +39,10 @@
       <!-- CarritoTotal, Detalle -->
       <div class="options">
         <div class="right">
-          <span class="cart"> <span id="precioGralPadre" class="cart-ico">&nbsp;</span> <strong id="precioGralHijo">$0</strong></span>
+          <span class="cart"> <span id="precioGralPadre" class="cart-ico">&nbsp;</span> <strong id="precioGralHijo">$0</strong>
+        </span>
           <!-- Boton modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Pagar
           </button>
           <!-- Modal -->
@@ -51,13 +51,13 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel"></h5>
+              <h5 class="modal-title" id="staticBackdropLabel">Gracias por su compra | Cervecería 1930</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div id="mostrarDetalle" class="modal-body">El pago ha sido efectuado.</div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Comprobante</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Comprobante</button>
             </div>
           </div>
         </div>
@@ -68,20 +68,10 @@
       <!-- Carrito, Detalle -->
       <!-- Content -->
       <div id="content">
-        <!-- Tabs -->
-        <!-- <div class="tabs">
-        <ul>
-          <li><a href="#" class="active"><span>Cerveza en lata</span></a></li>
-          <li><a href="#"><span>Remeras</span></a></li>
-          <li><a href="#" class="red"><span>Otros</span></a></li>
-        </ul>
-      </div>    -->
-
-        <!-- Tabs -->
         <!-- Container -->
         <div class="Container">
-          <h1 id="titulo">1930 Cervecería - Cervezas en latas y botellón</h1>
-          <h4 id="latas"></h4>
+          <h1 id="titulo"> 1930 Cervecería </h1>
+          <h4 id="latas" onclick="myFunction()"></h4>
           <hr>
           <div id="welcome"></div>
           <hr>
@@ -108,7 +98,7 @@
             <th scope="row" colspan="2">Total productos</th>
             <td>10</td>
             <td>
-              <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+              <button class="btn btn-dark btn-sm" id="vaciar-carrito">
                 vaciar todo
               </button>
             </td>
@@ -121,10 +111,10 @@
               <td>Café</td>
               <td>1</td>
               <td>
-                <button class="btn btn-info btn-sm">
+                <button class="btn btn-dark btn-sm suma">
                   +
                 </button>
-                <button class="btn btn-danger btn-sm">
+                <button class="btn btn-dark btn-sm resta">
                   -
                 </button>
               </td>
@@ -170,8 +160,7 @@
     <!-- Footer -->
     <div id="footerDown">
       <div class="left">
-        <a href="#">Home</a> <span>|</span> <a href="#">Mi cuenta</a> <span>|</span> <a href="#">Tienda</a>
-        <span>|</span> <a href="#">Contacto</a>
+        <a href="index.html">Home</a> <span>|</span> <a href="index.html">Tienda</a> <span>|</span> <a href="form.html">Contacto</a>
       </div>
       <div class="right"> &copy; Cervecería 1930 | Batán - Argentina</div>
     </div>

@@ -6,7 +6,7 @@ const templateCard = document.getElementById('template-card').content //.content
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
 const fragment = document.createDocumentFragment()
-let carrito = {} //variable vacia para luego ser modificada, segun la compra que se haga.
+let carrito = {} //variable vacia para luego ser modificada.
 
 //Capturar datos del JSON y parsearlos.
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,7 +41,6 @@ const fetchData = async () => {
 
 //Se utiliza Foreach por estar recorriendo un json para traer los datos.
 const pintarCards = (data) => {
-    // console.log(data)
     data.forEach(producto => {
         templateCard.querySelector('h5').textContent = producto.title
         templateCard.querySelector('p').textContent = producto.precio
@@ -56,8 +55,6 @@ const pintarCards = (data) => {
 }
 
 const addCarrito = e => {
-    // console.log(e.target)
-    // console.log(e.target.classList.contains('btn-dark'))
     if (e.target.classList.contains('btn-dark')) {
         setCarrito(e.target.parentElement)
     }
@@ -65,7 +62,6 @@ const addCarrito = e => {
 }
 
 const setCarrito = objeto => {
-    // console.log(objeto)
     const producto = { // creacion del producto
         id: objeto.querySelector('.btn-dark').dataset.id,
         title: objeto.querySelector('h5').textContent,
@@ -84,14 +80,13 @@ const setCarrito = objeto => {
 }
 
 const pintarCarrito = () => {
-    // console.log(carrito)
     items.innerHTML = ''
     Object.values(carrito).forEach(producto => {
         templateCarrito.querySelector('th').textContent = producto.id
         templateCarrito.querySelectorAll('td')[0].textContent = producto.title
         templateCarrito.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarrito.querySelector('.btn-info').dataset.id = producto.id
-        templateCarrito.querySelector('.btn-danger').dataset.id = producto.id
+        templateCarrito.querySelector('.suma').dataset.id = producto.id
+        templateCarrito.querySelector('.resta').dataset.id = producto.id
         templateCarrito.querySelector('span').textContent = producto.cantidad * producto.precio
         const clone = templateCarrito.cloneNode(true)
         fragment.appendChild(clone)
@@ -112,14 +107,9 @@ const pintarFooter = () => {
         return
     }
 
-    const ncantidad = Object.values(carrito).reduce((acc, {
-        cantidad
-    }) => acc + cantidad, 0)
-    // console.log(ncantidad)
-    const nprecio = Object.values(carrito).reduce((acc, {
-        cantidad,
-        precio
-    }) => acc + cantidad * precio, 0)
+    const ncantidad = Object.values(carrito).reduce((acc, {cantidad}) => acc + cantidad, 0)
+    
+    const nprecio = Object.values(carrito).reduce((acc, {cantidad, precio}) => acc + cantidad * precio, 0)
 
     templateFooter.querySelectorAll('td')[0].textContent = ncantidad
     templateFooter.querySelector('span').textContent = nprecio
@@ -148,21 +138,19 @@ const pintarFooter = () => {
             //ACCIONES DE LOS BOTONES
 
 const btnAccion = e => {
-    // console.log(e.target)
+    
     // Boton - Accion de aumentar
-    if (e.target.classList.contains('btn-info')) {
+    if (e.target.classList.contains('suma')) {
         // console.log(carrito[e.target.dataset.id])
         const producto = carrito[e.target.dataset.id]
         producto.cantidad++
-        carrito[e.target.dataset.id] = {
-            ...producto
-        }
+        carrito[e.target.dataset.id] = {...producto}
         pintarCarrito()
 
     }
 
     // Boton - Accion restar
-    if (e.target.classList.contains('btn-danger')) {
+    if (e.target.classList.contains('resta')) {
         const producto = carrito[e.target.dataset.id]
         producto.cantidad--
         if (producto.cantidad === 0) {
@@ -175,21 +163,9 @@ const btnAccion = e => {
     e.stopPropagation()
 }
 
-// jquery animacion
+// jquery animacion //
 
 $("#titulo").fadeIn(3000).slideDown("slow").fadeOut(3000).slideUp("slow").fadeIn(3000);
-
-//
-
-$("#latas").prepend('<button id="btn-latas">Hazme Click</button>');
-
-$("#latas").prepend(`<div id="div-borneo" style="display: none; height: 50px">
-                    <h4>Gracias por visitarnos!!</h4>
-                    </div>`);
-
-$("#btn-latas").click(() => {
-    $("#div-borneo").toggle("slow");
-});
 
 
 // selectores
@@ -197,7 +173,7 @@ $("#btn-latas").click(() => {
 $("#welcome").prepend(`<form id="form">
                        <input type="text", placeholder="Ingrese su nombre">
                        <input type="number", placeholder="Ingrese su edad">
-                       <input type="submit">
+                       <input type="submit" style="background-color: gray";>
                    </form>`);
 
 $("#form").submit(function (e) {
@@ -211,7 +187,7 @@ $("#form").submit(function (e) {
 
 const URLGET = "./metodoGET.json"
 
-$("#latas").prepend('<button id="btn1" style="margin: 5px; border-radius: 5px; background-color: #fff; box-shadow: 2px 0px 2px 0px;">Características de nuestras Cervezas</button>');
+$("#latas").prepend('<button id="btn1" onclick="myFunction()" style="margin: 5px; border-radius: 5px; background-color: #fff; box-shadow: 2px 0px 2px 0px;">Mira las características de nuestras Cervezas</button>');
 
 $("#btn1").click(() => {
     $.get(URLGET, function (respuesta, estado) {
@@ -226,6 +202,19 @@ $("#btn1").click(() => {
         }
     });
 });
+
+// $("#btn1").click(() => {
+//     $("#latas").toggle("slow");
+// });
+
+    // function myFunction() {
+    //     let x = document.getElementById("#latas");
+    //     if (x.style.display === "none") {
+    //       x.style.display = "block";
+    //     } else {
+    //       x.style.display = "none";
+    //     }
+    //   }
 
 // Animacion CARDS
 const element = document.querySelector('#cards');
