@@ -30,7 +30,7 @@ items.addEventListener('click', e => {
 // Leemos info del JSON
 const fetchData = async () => {
     try {
-        const res = await fetch(window.location.href  + 'api.json') //peticion de acceso a los datos
+        const res = await fetch(window.location.href + 'api.json') //peticion de acceso a los datos
         const data = await res.json() //guardo los datos del json
         // console.log(data)
         pintarCards(data)
@@ -163,31 +163,30 @@ const btnAccion = e => {
     e.stopPropagation()
 }
 
-// jquery animacion //
+// jquery animacion titulo //
 
 $("#titulo").fadeIn(3000).slideDown("slow").fadeOut(3000).slideUp("slow").fadeIn(3000);
 
+/* Formulario correo - Validacion en consola */
 
-// selectores
+function recogerDatos(){
+   let nombre = document.getElementById('fname').value;
+   let mail = document.getElementById('inputEmail').value;
+   let telefono = document.getElementById('phone').value;
+   let consulta = document.getElementById('floatingTextarea').value;
 
-$("#welcome").prepend(`<form id="form">
-                       <input type="text", placeholder="Ingrese su nombre">
-                       <input type="number", placeholder="Ingrese su edad">
-                       <input type="submit" style="background-color: gray";>
-                   </form>`);
+   let mensaje = "El cliente " + nombre +
+                ", con el email: " + mail +
+                ", y su teléfono es " + telefono +
+                ", nos deja su consulta que dice: " + consulta +
+                " FIN CONSULTA";
 
-$("#form").submit(function (e) {
-    e.preventDefault();
-    let ingresos = $(e.target).children();
-    console.log(ingresos[0].value);
-    console.log(ingresos[1].value);
-});
+                console.log(mensaje);
+}
 
-// AJAX - GET
+// AJAX - GET - Se inserta caractaristicas de las cervezas
 
 const URLGET = "./metodoGET.json"
-
-$("#latas").prepend('<button id="btn1" onclick="myFunction()" style="margin: 5px; border-radius: 5px; background-color: #fff; box-shadow: 2px 0px 2px 0px;">Mira las características de nuestras Cervezas</button>');
 
 $("#btn1").click(() => {
     $.get(URLGET, function (respuesta, estado) {
@@ -203,20 +202,31 @@ $("#btn1").click(() => {
     });
 });
 
-// $("#btn1").click(() => {
-//     $("#latas").toggle("slow");
-// });
+$("#btn1").click(() => {
+    $("#latas").toggle("slow");
+});
 
-    // function myFunction() {
-    //     let x = document.getElementById("#latas");
-    //     if (x.style.display === "none") {
-    //       x.style.display = "block";
-    //     } else {
-    //       x.style.display = "none";
-    //     }
-    //   }
 
 // Animacion CARDS
 const element = document.querySelector('#cards');
 element.classList.add('animate__animated', 'animate__pulse');
 element.style.setProperty('--animate-duration', '2s');
+
+/* boton subir */ 
+$(document).ready(function(){
+
+	$('.ir-arriba').click(function(){
+		$('body, html').animate({
+			scrollTop: '0px'
+		}, 4000);
+	});
+
+	$(window).scroll(function(){
+		if( $(this).scrollTop() > 200 ){
+			$('.ir-arriba').slideDown(1000);
+		} else {
+			$('.ir-arriba').slideUp(1000);
+		}
+	});
+
+});
