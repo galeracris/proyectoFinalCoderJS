@@ -33,24 +33,26 @@
   </div>
 
   <div class="container">
-    <form action="#">
-        <div class="formClass mb-3">
+    <form action="#" name="myForm" method="POST">
+        <div id="form" mb-3">
             
-            <label for="InputEmail" class="form-label"><i><strong>INGRESÁ TU EMAIL</i></strong></label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con
-                nadie más.</div>
+          <label for="fname" class="form-label"><i><strong>INGRESÁ TU NOMBRE</i></strong></label>
+          <input type="text" class="form-control" id="fname"><br>
+
+
+          <label for="InputEmail" class="form-label"><i><strong>INGRESÁ TU EMAIL</i></strong></label>
+          <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con
+          nadie más.</div>
                 
-                <label for="fname" class="form-label"><i><strong>INGRESÁ TU NOMBRE</i></strong></label>
-                <input type="text" class="form-control" id="fname"><br>
                 
-                <label for="phone" class="form-label"><i><strong>INGRESÁ TU TELÉFONO</i></strong></label>
-                <input type="number" class="form-control" id="phone"><br>
+          <label for="phone" class="form-label"><i><strong>INGRESÁ TU TELÉFONO</i></strong></label>
+          <input type="number" class="form-control" id="phone"><br>
                 
-                <label for="floatingTextarea" class="form-label"><i><strong>CONSULTA</i></strong></label><br>
-                <textarea class="form-control" placeholder="Dejanos tú comentario aquí" id="floatingTextarea" style="height: 100px"></textarea>
+          <label for="floatingTextarea" class="form-label"><i><strong>CONSULTA</i></strong></label><br>
+          <textarea class="form-control" placeholder="Dejanos tú comentario aquí" id="floatingTextarea" style="height: 100px"></textarea>
                 
-                <input type="submit" value="Enviar" class="btn btn-dark">
+                <button type="button" onclick="recogerDatos()" class="btn btn-dark">Enviar</button>
             </div>
             
         </form>
