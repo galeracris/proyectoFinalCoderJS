@@ -148,6 +148,19 @@ to {opacity: 25%;}
 #footerDown a:hover{ color:#0b6308; }
 #footerDown span{ padding:0 5px;}
 
+/* boton subir */
+
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#9c9c9c;
+	font-size:20px;
+	color:#fff;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}
+
 
 /* Responsive */
 
